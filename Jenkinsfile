@@ -78,7 +78,7 @@ node {
 
     stage('build dacpac') {
         bat "\"${tool name: 'Default', type: 'msbuild'}\" /p:Configuration=Release"
-        stash includes: 'SqlContainerPipeline\\bin\\Release\\SqlContainerPipeline.dacpac', name: 'theDacpac'
+        stash includes: 'SelfBuildPipeline\\bin\\Release\\SelfBuildPipeline.dacpac', name: 'theDacpac'
     }
 
     stage('start container') {
