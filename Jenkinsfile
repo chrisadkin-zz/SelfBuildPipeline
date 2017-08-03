@@ -29,19 +29,19 @@ def DeployDacpac() {
 
     switch(env.BRANCH_NAME) {
       case "master":
-        bat "\"C:\\Program Files\\Microsoft SQL Server\\140\\DAC\\bin\\sqlpackage.exe\" /Action:Publish /SourceFile:\"SelfBuildPipeline\\bin\\Release\\SelfBuildPipelinePipeline.dacpac\" /TargetConnectionString:\"server=localhost,15565;database=SsdtDevOpsDemo;user id=sa;password=P@ssword1\" /p:ExcludeObjectType=Logins"
+        bat "\"C:\\Program Files\\Microsoft SQL Server\\140\\DAC\\bin\\sqlpackage.exe\" /Action:Publish /SourceFile:\"SelfBuildPipeline\\bin\\Release\\SelfBuildPipeline.dacpac\" /TargetConnectionString:\"server=localhost,15565;database=SsdtDevOpsDemo;user id=sa;password=P@ssword1\" /p:ExcludeObjectType=Logins"
         break
       case "Release":
-        bat "\"C:\\Program Files\\Microsoft SQL Server\\140\\DAC\\bin\\sqlpackage.exe\" /Action:Publish /SourceFile:\"SelfBuildPipeline\\bin\\Release\\SelfBuildPipelinePipeline.dacpac\" /TargetConnectionString:\"server=localhost,15566;database=SsdtDevOpsDemo;user id=sa;password=P@ssword1\" /p:ExcludeObjectType=Logins"
+        bat "\"C:\\Program Files\\Microsoft SQL Server\\140\\DAC\\bin\\sqlpackage.exe\" /Action:Publish /SourceFile:\"SelfBuildPipeline\\bin\\Release\\SelfBuildPipeline.dacpac\" /TargetConnectionString:\"server=localhost,15566;database=SsdtDevOpsDemo;user id=sa;password=P@ssword1\" /p:ExcludeObjectType=Logins"
         break
       case "Feature":
-        bat "\"C:\\Program Files\\Microsoft SQL Server\\140\\DAC\\bin\\sqlpackage.exe\" /Action:Publish /SourceFile:\"SelfBuildPipeline\\bin\\Release\\SelfBuildPipelinePipeline.dacpac\" /TargetConnectionString:\"server=localhost,15567;database=SsdtDevOpsDemo;user id=sa;password=P@ssword1\" /p:ExcludeObjectType=Logins"
+        bat "\"C:\\Program Files\\Microsoft SQL Server\\140\\DAC\\bin\\sqlpackage.exe\" /Action:Publish /SourceFile:\"SelfBuildPipeline\\bin\\Release\\SelfBuildPipeline.dacpac\" /TargetConnectionString:\"server=localhost,15567;database=SsdtDevOpsDemo;user id=sa;password=P@ssword1\" /p:ExcludeObjectType=Logins"
         break
       case "Prototype":
-        bat "\"C:\\Program Files\\Microsoft SQL Server\\140\\DAC\\bin\\sqlpackage.exe\" /Action:Publish /SourceFile:\"SelfBuildPipeline\\bin\\Release\\SelfBuildPipelinePipeline.dacpac\" /TargetConnectionString:\"server=localhost,15568;database=SsdtDevOpsDemo;user id=sa;password=P@ssword1\" /p:ExcludeObjectType=Logins"
+        bat "\"C:\\Program Files\\Microsoft SQL Server\\140\\DAC\\bin\\sqlpackage.exe\" /Action:Publish /SourceFile:\"SelfBuildPipeline\\bin\\Release\\SelfBuildPipeline.dacpac\" /TargetConnectionString:\"server=localhost,15568;database=SsdtDevOpsDemo;user id=sa;password=P@ssword1\" /p:ExcludeObjectType=Logins"
         break
       default:
-        bat "\"C:\\Program Files\\Microsoft SQL Server\\140\\DAC\\bin\\sqlpackage.exe\" /Action:Publish /SourceFile:\"SelfBuildPipeline\\bin\\Release\\SelfBuildPipelinePipeline.dacpac\" /TargetConnectionString:\"server=localhost,15569;database=SsdtDevOpsDemo;user id=sa;password=P@ssword1\" /p:ExcludeObjectType=Logins"
+        bat "\"C:\\Program Files\\Microsoft SQL Server\\140\\DAC\\bin\\sqlpackage.exe\" /Action:Publish /SourceFile:\"SelfBuildPipeline\\bin\\Release\\SelfBuildPipeline.dacpac\" /TargetConnectionString:\"server=localhost,15569;database=SsdtDevOpsDemo;user id=sa;password=P@ssword1\" /p:ExcludeObjectType=Logins"
         break
     }
 }
