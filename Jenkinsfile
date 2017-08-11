@@ -29,6 +29,7 @@ node {
     }
     stage('start container') {
         print  env.BRANCH_NAME
+        print  BranchToPort[env.BRANCH_NAME]
 
         StartContainer()
     }
