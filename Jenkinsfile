@@ -7,6 +7,14 @@ def BranchToPort = [
 ]
 
 def StartContainer() {
+    def BranchToPort = [
+        'master'   : 15565,
+        'Release'  : 15566,
+        'Feature'  : 15567,
+        'Prototype': 15568,
+        'HotFix'   : 15569
+    ]    
+    
     def SqlPort = BranchToPort[env.BRANCH_NAME]
     print "Debug point 1"
     print ${SqlPort}
