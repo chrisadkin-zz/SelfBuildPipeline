@@ -1,9 +1,3 @@
-def StartContainer() {
-    def SqlPort = BranchToPort[env.BRANCH_NAME]
-    print ${SqlPort}
-    bat "docker run -e \"ACCEPT_EULA=Y\" -e \"SA_PASSWORD=P@ssword1\" --name SQLLinux${env.BRANCH_NAME} -d -i -p {SqlPort}:1433 microsoft/mssql-server-linux"
-}
-
 def BranchToPort = [
     'master'   : 15565,
     'Release'  : 15566,
@@ -11,6 +5,12 @@ def BranchToPort = [
     'Prototype': 15568,
     'HotFix'   : 15569
 ]
+
+def StartContainer() {
+    def SqlPort = BranchToPort[env.BRANCH_NAME]
+    print ${SqlPort}
+    bat "docker run -e \"ACCEPT_EULA=Y\" -e \"SA_PASSWORD=P@ssword1\" --name SQLLinux${env.BRANCH_NAME} -d -i -p {SqlPort}:1433 microsoft/mssql-server-linux"
+}
 
 def DeployDacpac() {
     def SqlPackage = "C:\\Program Files\\Microsoft SQL Server\\140\\DAC\\bin\\sqlpackage.exe"
