@@ -8,7 +8,9 @@ def BranchToPort = [
 
 def StartContainer() {
     def SqlPort = BranchToPort[env.BRANCH_NAME]
+    print "Debug point 1"
     print ${SqlPort}
+    print "Debug point 2"
     bat "docker run -e \"ACCEPT_EULA=Y\" -e \"SA_PASSWORD=P@ssword1\" --name SQLLinux${env.BRANCH_NAME} -d -i -p {SqlPort}:1433 microsoft/mssql-server-linux"
 }
 
