@@ -10,17 +10,13 @@ def BranchToPort(String branchName) {
 }
 
 def StartContainer() {
-    print "Debug point 1"
-    BranchToPort(env.BRANCH_NAME)
-    print "Debug point 2"
-    
     bat "docker run -e \"ACCEPT_EULA=Y\" -e \"SA_PASSWORD=P@ssword1\" --name SQLLinux${env.BRANCH_NAME} -d -i -p ${BranchToPort(env.BRANCH_NAME)}:1433 microsoft/mssql-server-linux"
 }
 
 def DeployDacpac() {
     def SqlPackage = "C:\\Program Files\\Microsoft SQL Server\\140\\DAC\\bin\\sqlpackage.exe"
     def SourceFile = "SelfBuildPipeline\\bin\\Release\\SelfBuildPipeline.dacpac"
-    def ConnString = "server=localhost,15565;database=SsdtDevOpsDemo;user id=sa;password=P@ssword1"
+    def ConnString = "server=localhost,${BranchToPort(env.BRANCH_NAME)};database=SsdtDevOpsDemo;user id=sa;password=P@ssword1"
     
     unstash 'theDacpac'
     bat "\"${SqlPackage}\" /Action:Publish /SourceFile:\"${SourceFile}\" /TargetConnectionString:\"${ConnString}\" /p:ExcludeObjectType=Logins"
