@@ -28,9 +28,7 @@ node {
         stash includes: 'SelfBuildPipeline\\bin\\Release\\SelfBuildPipeline.dacpac', name: 'theDacpac'
     }
     stage('start container') {
-        print  ${env.BRANCH_NAME}
-        print  BranchToPort[${env.BRANCH_NAME}]
-        print  BranchToPort[env.BRANCH_NAME]
+        print  env.BRANCH_NAME
 
         StartContainer()
     }
