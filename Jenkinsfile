@@ -15,7 +15,7 @@ def StartContainer() {
 node {
     stage('git checkout') {
         print "Branch to be deployed"
-        print ${env.BRANCH_NAME}
+        print env.BRANCH_NAME
         git 'https://github.com/chrisadkin/SelfBuildPipeline'
     }
     stage('build dacpac') {
