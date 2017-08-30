@@ -14,6 +14,8 @@ def StartContainer() {
 }
 
 def DeployDacpac() {
+    print "Branch to be deployed"
+    print ${env.BRANCH_NAME}
     def SqlPackage = "C:\\Program Files\\Microsoft SQL Server\\140\\DAC\\bin\\sqlpackage.exe"
     def SourceFile = "SelfBuildPipeline\\bin\\Release\\SelfBuildPipeline.dacpac"
     def ConnString = "server=localhost,${BranchToPort(env.BRANCH_NAME)};database=SsdtDevOpsDemo;user id=sa;password=P@ssword1"
