@@ -1,7 +1,7 @@
 def BranchToPort(String branchName) {
     def BranchPortMap = [
         [branch: 'master'   , port: 15565],
-        [branch: 'Release' , port: 15566],
+        [branch: 'Release'  , port: 15566],
         [branch: 'Feature'  , port: 15567],
         [branch: 'Prototype', port: 15568],
         [branch: 'HotFix'   , port: 15569]
@@ -14,8 +14,6 @@ def StartContainer() {
 }
 
 def DeployDacpac() {
-    print "Branch to be deployed"
-    print ${env.BRANCH_NAME}
     def SqlPackage = "C:\\Program Files\\Microsoft SQL Server\\140\\DAC\\bin\\sqlpackage.exe"
     def SourceFile = "SelfBuildPipeline\\bin\\Release\\SelfBuildPipeline.dacpac"
     def ConnString = "server=localhost,${BranchToPort(env.BRANCH_NAME)};database=SsdtDevOpsDemo;user id=sa;password=P@ssword1"
@@ -26,6 +24,8 @@ def DeployDacpac() {
 
 node {
     stage('git checkout') {
+        print "Branch to be deployed"
+        print ${env.BRANCH_NAME}
         git 'https://github.com/chrisadkin/SelfBuildPipeline'
     }
     stage('build dacpac') {
