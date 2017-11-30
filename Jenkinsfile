@@ -4,7 +4,8 @@ def BranchToPort(String branchName) {
         [branch: 'Release'  , port: 15566],
         [branch: 'Feature'  , port: 15567],
         [branch: 'Prototype', port: 15568],
-        [branch: 'HotFix'   , port: 15569]
+        [branch: 'HotFix'   , port: 15569],
+        [branch: 'SqlNe'    , port: 15570]
     ]
     BranchPortMap.find { it['branch'] ==  branchName }['port']
 }
